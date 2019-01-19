@@ -1,0 +1,9 @@
+# Python
+__pycache__/
+
+# folders
+content/
+output/
+
+# config files
+*.ini

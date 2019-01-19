@@ -1,0 +1,7 @@
+<div class="card">
+    <div class="card__colortab"></div>
+    <div class="card__content">{% for key in content %}
+        <div class="card__content__category">{{ key }}</div>
+        <div class="card__content__value">{{ content[key] }}</div>
+    {% endfor %}</div>
+</div>

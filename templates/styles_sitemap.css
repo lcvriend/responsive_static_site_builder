@@ -1,0 +1,55 @@
+/* ___________________________________________________________ */
+/*                            SITEMAP                          */
+/* ___________________________________________________________ */
+.sitemap, .sitemap ul, .sitemap li {
+     position: relative;
+}
+.sitemap h3, h4 {
+    margin: 0;
+}
+.sitemap h3 {
+    font-size: 1em;
+    color: var(--color-headings-dark, DarkSlateGray);
+}
+.sitemap h4 {
+    font-size: 1em;
+    color: var(--color-headings-medium, DimGray);
+}
+.sitemap p {
+    margin: 0;
+    color: var(--color-headings-light, Gray);
+    font-style: italic;
+}
+.sitemap ul {
+    list-style: none;
+    margin: 0;
+    padding-left: 24px;
+}
+.sitemap li::before, .sitemap li::after {
+    content: "";
+    position: absolute;
+    left: -12px;
+}
+.sitemap li::before {
+    border-top: 1px solid var(--color-headings-light, Gray);
+    top: 9px;
+    width: 8px;
+    height: 0;
+}
+.sitemap li::after {
+    border-left: 1px solid var(--color-headings-light, Gray);
+    height: 100%;
+    width: 0px;
+    top: 2px;
+}
+.sitemap ul > li:last-child::after {
+    height: 8px;
+}
+.sitemap a {
+    color: black;
+    text-decoration: none;
+}
+.sitemap a:hover {
+    font-weight: bold;
+    background-color: var(--color-hover);
+}

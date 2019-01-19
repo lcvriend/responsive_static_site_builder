@@ -1,0 +1,12 @@
+<nav>
+    <input type="checkbox" id="nav__toggle" class="nav__toggle">
+    <label for="nav__toggle" class="nav__toggle__button">☰</label>
+    <div class="document__title">{{ document_title }}</div>
+    <div class="nav__menu">
+        <ul>
+{% for section, href in sections_href %}
+            <li><a href="{{ nest }}{{ href }}" {% if section == current_section %}class="nav__active"{% endif %}>{{ section }}</a></li>
+{% endfor %}
+        </ul>
+    </div>
+</nav>

@@ -1,0 +1,9 @@
+<header>
+    <p>{{ breadcrumbs }}</p>
+{% if set_navigation %}
+    <div class="header__buttons">
+        <a href="{{ nest }}{{ adjacent['prev_href'] }}" title="{{ adjacent['prev_page'] }}"class="header__button">&#8249;</a>
+        <a href="{{ nest }}{{ adjacent['next_href'] }}" title="{{ adjacent['next_page'] }}"class="header__button">&#8250;</a>
+    </div>
+{% endif %}
+</header>

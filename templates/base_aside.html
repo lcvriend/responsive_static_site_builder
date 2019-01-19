@@ -1,0 +1,38 @@
+<input type="checkbox" id="aside__toggle" class="aside__toggle" checked>
+<label for="aside__toggle" class="aside__toggle__button">
+    <span></span>
+</label>
+<aside>
+    <h1 class="aside__title">{{ current_section }}</h1>
+    <ul class="chapters">
+    {% for chapter in sitemap %}
+    {% if chapter is string() %}
+        <input id="chapter-{{ chapter|replace(" ", "_") }}" class="chapter__toggle" type="checkbox" {% if chapter == current_chapter %}checked{% endif %}>
+        <label for="chapter-{{ chapter|replace(" ", "_") }}" class="chapter__toggle__label">{{ chapter }}</label>
+        <div class="chapter">
+        {% for group in sitemap[chapter] %}
+            {% if group is string() %}
+            <p class="chapter__group">{{ group }}</p>
+            {% endif %}
+            <ul class="chapter__pages">
+            {% for page, href in sitemap[chapter][group] %}
+                <li class="chapter__page"><a {% if page|replace(" ", "_") == current_page|replace(" ", "_") %}class="chapter__current"{% endif %} href="{{ nest }}{{ href }}">{{ page }}</a></li>
+            {% endfor %}
+            </ul>
+        {% endfor %}
+        </div>
+    {% else %}
+        <ul class="chapter__pages">
+        {% for group in sitemap[chapter] %}
+            {% if group is string() %}
+            <p class="chapter__group">{{ group }}</p>
+            {% endif %}
+            {% for page, href in sitemap[chapter][group] %}
+            <li class="chapter__page"><a {% if page|replace(" ", "_") == current_page|replace(" ", "_") %}class="chapter__current"{% endif %} href="{{ nest }}{{ href }}">{{ page }}</a></li>
+            {% endfor %}
+        {% endfor %}
+        </ul>
+    {% endif %}
+    {% endfor %}
+    </ul>
+</aside>

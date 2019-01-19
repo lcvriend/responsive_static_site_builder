@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="{{ language }}" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ nest }}css/styles_base.css">
+        {% for stylesheet in stylesheets %}
+        <link rel="stylesheet" href="{{ nest }}css/{{ stylesheet }}">
+        {% endfor %}
+        <title>{{ current_page }} | {{ document_title}}</title>
+    </head>
+<body>
+    <div class="page">
+        {% with
+        nest=nest,
+        document_title=document_title,
+        sections_href=sections_href,
+        current_section=current_section
+        %}
+            {% include 'base_navigation' %}
+        {% endwith %}
+
+        {% with
+        nest=nest,
+        breadcrumbs=breadcrumbs,
+        set_navigation=set_navigation,
+        adjacent=adjacent
+        %}
+            {% include 'base_header' %}
+        {% endwith %}
+    <div class="main">
+        {% if set_navigation %}
+            {% with
+            nest=nest,
+            sitemap=sitemap,
+            current_section=current_section,
+            current_chapter=current_chapter,
+            current_page=current_page
+            %}
+                {% include 'base_aside' %}
+            {% endwith %}
+        {% endif %}
+        <article>
+            <div class="article__container">
+                <h1 class="page__title">{{ current_page }}</h1>
+                {{ content }}
+                {% block content %}{% endblock %}
+                <div class="timestamps">
+                    created on: {{ cdate }} | last modified on: {{ mdate }}
+                </div>
+            </div>
+        </article>
+    </div>
+        <footer>
+            <div class="footer__container">
+                <div class="footer__container__contact">
+                    <h1>Contact</h1>
+                    {{ footer_contact }}
+                </div>
+                <div class="footer__container__info">
+                    <h1>Information</h1>
+                    {{ footer_info }}
+                </div>
+                <div class="footer__container__version">
+                    <h1>Version</h1>
+                    <p>Version: {{ version }}</p>
+                    <p><a href="{{ nest }}sitemap.html">Sitemap</a></p>
+                </div>
+            </div>
+            <div class="footer__logo">
+                <img alt="logo" src="{{ nest }}images/logo.svg">
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

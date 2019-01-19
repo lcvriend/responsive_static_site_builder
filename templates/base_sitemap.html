@@ -1,0 +1,58 @@
+{% extends 'base' %}
+{% block content %}
+<div class="sitemap">
+<ul>
+    {% for section in sitemap %}
+    <li>
+        <h3>{{ section }}</h3>
+            <ul>
+            {% for chapter in sitemap[section] %}
+                {% if chapter is string() %}
+                <li>
+                    <h4>{{ chapter }}</h4>
+                    <ul>
+                    {% for group in sitemap[section][chapter] %}
+                    {% if group is string() %}
+                        <li>
+                            <p>{{ group }}</p>
+                            <ul>
+                                {% for page, href in sitemap[section][chapter][group] %}
+                                <li><a href="{{ href }}">{{ page }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    {% else %}
+                        {% for page, href in sitemap[section][chapter][group] %}
+                        <li><a href="{{ href }}">{{ page }}</a></li>
+                        {% endfor %}
+                    {% endif %}
+
+                    {% endfor %}
+                    </ul>
+                {% else %}
+                {% for group in sitemap[section][chapter] %}
+                    {% if group is string() %}
+                    <li>
+                        <p>{{ group }}</p>
+                        <ul>
+                            {% for page, href in sitemap[section][chapter][group] %}
+                            <li><a href="{{ href }}">{{ page }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    {% else %}
+                    {% for page, href in sitemap[section][chapter][group] %}
+                    <li><a href="{{ href }}">{{ page }}</a></li>
+                    {% endfor %}
+                    {% endif %}
+                {% endfor %}
+
+                {% endif %}
+
+            {% endfor %}
+            </ul>
+        {% endfor %}
+    </li>
+</ul>
+</div>
+{% endblock %}

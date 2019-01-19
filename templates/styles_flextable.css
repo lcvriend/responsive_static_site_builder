@@ -1,0 +1,62 @@
+/* ___________________________________________________________ */
+/*                          FLEX TABLE                         */
+/* ___________________________________________________________ */
+.flextable {
+    display: block;
+    flex-direction: column;
+    margin: var(--margin-sides, 1.5rem);
+    border: 1px solid var(--color-lines, Gainsboro);
+}
+.flextable__header {
+    display: none;
+}
+.flextable__item {
+    display: flex;
+    flex-direction: column;
+}
+.flextable__item:hover {
+    background-color: var(--color-hover, #F0F0F0)
+}
+.flextable__header,
+.flextable__item {
+    padding: 0.5em;
+}
+.flextable__category {
+    display: block;
+    background-color: var(--color-tab, LightSteelBlue);
+    border-bottom: 1px solid var(--color-lines, Gainsboro);
+    font-weight: bold;
+    color: white;
+}
+.flextable__item__end-of-row {
+    border-bottom: 1px solid var(--color-lines, Gainsboro);
+}
+.flextable p,
+.flextable ol,
+.flextable ul {
+    margin-left: 0;
+}
+.remove_padding {
+    padding: 0;
+}
+@media screen and (min-width: 600px) {
+    .flextable {
+        display: grid;
+    }
+    .flextable__header {
+        display: block;
+        background-color: var(--color-tab, LightSteelBlue);
+        border-bottom: 1px solid var(--color-lines, Gainsboro);
+        font-weight: bold;
+        color: white;
+    }
+    .flextable__item:hover {
+        background-color: transparent;
+    }
+    .flextable__category {
+        display: none;
+    }
+    .flextable__item__end-of-row {
+        border-bottom: none;
+    }
+}
