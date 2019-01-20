@@ -99,7 +99,7 @@
       </h1>
       <div class="page__synopsis">
        <p>
-        The site structure table contains the structure for the site. It determines the hierarchy and order of the site pages.
+        The site structure table contains the structure of the site. It determines the hierarchy and order of the site pages.
        </p>
       </div>
       <p>
@@ -291,7 +291,7 @@
          Description
         </div>
         <div>
-         Code for crossreferencing to this page
+         Code for cross-referencing this page
         </div>
        </div>
       </div>
@@ -301,8 +301,79 @@
         page_id
        </code>
       </p>
+      <p>
+       A valid site structure table must meet the following requirements:
+       <br/>
+       - Each page is part of a section.
+       <br/>
+       - Each page has a name.
+       <br/>
+       - The order of every page is fully specified.
+      </p>
+      <h2>
+       Sections
+      </h2>
+      <p>
+       The sections can be used to arrange your site into main topics. The sections are shown in the navigation bar at the top of the page. Navigating to a section from the navigation bar will always take you to the first page of the section. Your site needs at minimum one section. Each page needs to be assigned to a section.
+      </p>
+      <h2>
+       Chapters &amp; groups
+      </h2>
+      <p>
+       The chapters and groups are used to organize and structure the pages within a section into sensible units. Chapters and groups are shown in the navigation bar on the left side of the page. You do not need to use chapters or groups in your site. Leave the
+       <code>
+        Chapter
+       </code>
+       and
+       <code>
+        Group
+       </code>
+       fields empty if you do not want a page to be part of a chapter or group. You will need to fill the
+       <code>
+        Chapter_order
+       </code>
+       and
+       <code>
+        Group_order
+       </code>
+       fields.
+      </p>
+      <h2>
+       Pages &amp; cross-references
+      </h2>
+      <p>
+       The pages are the units that contain actual content. You can assign a code to each page in the
+       <code>
+        Code
+       </code>
+       field. When the builder encounters a [code] in the text, it will convert it to an anchor tag that links to the page the code belongs to.
+      </p>
+      <h2>
+       Order
+      </h2>
+      <p>
+       Each order field within the structure table needs to have a value. The builder determines where the page fits within the total site order by taking into account all order fields. This is why every page should have a unique site order (which is the combination of section, chapter, group, page order).
+      </p>
+      <p>
+       All pages within a section should have the same
+       <code>
+        Row order
+       </code>
+       All pages within a chapter should have the same
+       <code>
+        Chapter order
+       </code>
+       All pages within a group should have the same
+       <code>
+        Group order
+       </code>
+       Within a group all pages should have a unique
+       <code>
+        Page order
+       </code>
+      </p>
       <div class="timestamps">
-       created on: 14-01-2019 | last modified on: 20-01-2019
+       created on: 14-01-2019 | last modified on: 21-01-2019
       </div>
      </div>
     </article>
@@ -338,7 +409,7 @@
        Version
       </h1>
       <p>
-       Version: 1
+       Version: 5
       </p>
       <p>
        <a href="../sitemap.html">

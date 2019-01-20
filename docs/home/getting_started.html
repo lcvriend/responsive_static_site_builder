@@ -4,6 +4,7 @@
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
   <link href="../css/styles_base.css" rel="stylesheet"/>
+  <link href="../css/styles_collapsible.css" rel="stylesheet"/>
   <title>
    Getting started | Site Builder Manual
   </title>
@@ -138,156 +139,198 @@
        </a>
        (argparse, collections, configparser, io, pathlib, uuid).
       </p>
-      <h3>
-       Step 1: Download the repository
-      </h3>
-      <p>
-       First download the repository from
-       <a href="https://github.com/lcvriend/responsive_static_site_builder">
-        GitHub
-       </a>
-       .
-      </p>
-      <h3>
-       Step 2: Initial setup
-      </h3>
-      <p>
-       The
-       <strong>
-        site builder
-       </strong>
-       needs some additional configuration files and folders to run that are not part of the repository. Rather, the scripts will create these files during their maiden voyage. Start out by running
-       <code>
-        python build_structure.py
-       </code>
-       which will:
-      </p>
-      <ul>
-       <li>
-        Create content and output folders for your website.
-       </li>
-       <li>
-        Create a
-        <code>
-         config.ini
-        </code>
-        file.
-       </li>
-       <li>
-        Create a
-        <code>
-         structure.xlsx
-        </code>
-        file.
-       </li>
-      </ul>
-      <p>
-       Then run
-       <code>
-        python build_site.py
-       </code>
-       which will:
-      </p>
-      <ul>
-       <li>
-        Create a
-        <code>
-         properties.ini
-        </code>
-        file in the content folder.
-       </li>
-       <li>
-        Create a first .html page in the output folder.
-       </li>
-      </ul>
-      <h3>
-       Step 3: Give your website a name
-      </h3>
-      <p>
-       Now that you have initialized the tool, go to the
-       <code>
-        properties.ini
-       </code>
-       file in the content folder. This file contains some basic properties about your site:
-      </p>
-      <ul>
-       <li>
-        Name of the site.
-       </li>
-       <li>
-        Language (used in the html head).
-       </li>
-       <li>
-        Build version (should be an integer).
-       </li>
-       <li>
-        Text to be printed when a page is empty.
-       </li>
-       <li>
-        Footer information.
-       </li>
-      </ul>
-      <p>
-       You can open and edit this file with your text editor. Give your site a name.
-      </p>
-      <h2>
-       Step 4: Create a first structure for your site
-      </h2>
-      <p>
-       The fourth step is to edit the
-       <a class="crossref" href="../contents/site_structure_table.html">
-        site structure table
-       </a>
-       which is stored as
-       <code>
-        structure.xlsx
-       </code>
-       in the content folder. Here you add the pages that will be part of the website. You also divide your site into sections, chapters and page groups. There are some rules for how to build up the structure table. Check the
-       <a class="crossref" href="../contents/site_structure_table.html">
-        site structure table
-       </a>
-       page for more details.
-      </p>
-      <p>
-       After you have created a site structure (or if you later on want to update your site structure) you run the
-       <a class="crossref" href="../scripts/build_structure.html">
-        build structure script
-       </a>
-       :
-       <code>
-        python script_build_structure.py
-       </code>
-       which will add the newly added pages as .md files to the content folder.
-      </p>
-      <h2>
-       Step 5: Fill your pages with content
-      </h2>
-      <p>
-       The fifth step is to put some content in your pages. With a text editor you can edit the .md files in the content folder. You can use conventional markdown and add custom elements. See the
-       <a class="crossref" href="../home/cheatsheet.html">
-        cheatsheet
-       </a>
-       for a quick overview of the syntax.
-      </p>
-      <h2>
-       Step 4: Build your site
-      </h2>
-      <p>
-       The fourth step is to build (a first version of) your website with the
-       <a class="crossref" href="../scripts/build_site.html">
-        build site script
-       </a>
-       by running
-       <code>
-        python script_build_site.py
-       </code>
-       This script will render your site as html into the designated output folder.
-      </p>
+      <div class="collapsible">
+       <input checked="" class="collapsible__toggle" id="collapsible-05d23733" type="checkbox"/>
+       <label class="collapsible__label" for="collapsible-05d23733">
+        Step 1 - Download the repository
+       </label>
+       <div class="collapsible__container">
+        <div class="collapsible__content">
+         <p>
+          First download the repository from
+          <a href="https://github.com/lcvriend/responsive_static_site_builder">
+           GitHub
+          </a>
+          .
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="collapsible">
+       <input checked="" class="collapsible__toggle" id="collapsible-2dcd6ee0" type="checkbox"/>
+       <label class="collapsible__label" for="collapsible-2dcd6ee0">
+        Step 2 - Initial setup
+       </label>
+       <div class="collapsible__container">
+        <div class="collapsible__content">
+         <p>
+          The
+          <strong>
+           site builder
+          </strong>
+          needs some additional configuration files and folders to run that are not part of the repository. Rather, the scripts will create these files during their maiden voyage. Start out by running
+          <code>
+           python build_structure.py
+          </code>
+          which will:
+         </p>
+         <ul>
+          <li>
+           Create content and output folders for your website.
+          </li>
+          <li>
+           Create a
+           <code>
+            config.ini
+           </code>
+           file.
+          </li>
+          <li>
+           Create a
+           <code>
+            structure.xlsx
+           </code>
+           file.
+          </li>
+         </ul>
+         <p>
+          Then run
+          <code>
+           python build_site.py
+          </code>
+          which will:
+         </p>
+         <ul>
+          <li>
+           Create a
+           <code>
+            properties.ini
+           </code>
+           file in the content folder.
+          </li>
+          <li>
+           Create a first .html page in the output folder.
+          </li>
+         </ul>
+        </div>
+       </div>
+      </div>
+      <div class="collapsible">
+       <input checked="" class="collapsible__toggle" id="collapsible-c5278b81" type="checkbox"/>
+       <label class="collapsible__label" for="collapsible-c5278b81">
+        Step 3 - Give your website a name
+       </label>
+       <div class="collapsible__container">
+        <div class="collapsible__content">
+         <p>
+          Now that you have initialized the tool, go to the
+          <code>
+           properties.ini
+          </code>
+          file in the content folder. This file contains some basic properties about your site:
+         </p>
+         <ul>
+          <li>
+           Name of the site.
+          </li>
+          <li>
+           Language (used in the html head).
+          </li>
+          <li>
+           Build version (should be an integer).
+          </li>
+          <li>
+           Text to be printed when a page is empty.
+          </li>
+          <li>
+           Footer information.
+          </li>
+         </ul>
+         <p>
+          You can open and edit this file with your text editor. Give your site a name.
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="collapsible">
+       <input checked="" class="collapsible__toggle" id="collapsible-950c8ac1" type="checkbox"/>
+       <label class="collapsible__label" for="collapsible-950c8ac1">
+        Step 4 - Create a first structure for your site
+       </label>
+       <div class="collapsible__container">
+        <div class="collapsible__content">
+         <p>
+          The fourth step is to edit the
+          <a class="crossref" href="../contents/site_structure_table.html">
+           site structure table
+          </a>
+          which is stored as
+          <code>
+           structure.xlsx
+          </code>
+          in the content folder. Here you add the pages that will be part of the website. You also divide your site into sections, chapters and page groups. There are some rules for how to build up the structure table. Check the
+          <a class="crossref" href="../contents/site_structure_table.html">
+           site structure table
+          </a>
+          page for more details.
+         </p>
+         <p>
+          After you have created a site structure (or if you later on want to update your site structure) you run the
+          <a class="crossref" href="../scripts/build_structure.html">
+           build structure script
+          </a>
+          :
+          <code>
+           python script_build_structure.py
+          </code>
+          which will add the newly added pages as .md files to the content folder.
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="collapsible">
+       <input checked="" class="collapsible__toggle" id="collapsible-0a931699" type="checkbox"/>
+       <label class="collapsible__label" for="collapsible-0a931699">
+        Step 5 - Fill your pages with content
+       </label>
+       <div class="collapsible__container">
+        <div class="collapsible__content">
+         <p>
+          The fifth step is to put some content in your pages. With a text editor you can edit the .md files in the content folder. You can use conventional markdown and add custom elements. See the
+          <a class="crossref" href="../home/cheatsheet.html">
+           cheatsheet
+          </a>
+          for a quick overview of the syntax.
+         </p>
+        </div>
+       </div>
+      </div>
+      <div class="collapsible">
+       <input checked="" class="collapsible__toggle" id="collapsible-de0cd07a" type="checkbox"/>
+       <label class="collapsible__label" for="collapsible-de0cd07a">
+        Step 6 - Build your site
+       </label>
+       <div class="collapsible__container">
+        <div class="collapsible__content">
+         <p>
+          The last step is to build (a first version of) your website with the
+          <a class="crossref" href="../scripts/build_site.html">
+           build site script
+          </a>
+          by running
+          <code>
+           python script_build_site.py
+          </code>
+          This script will render your site as html into the designated output folder.
+         </p>
+        </div>
+       </div>
+      </div>
       <p>
        And that's it! For more details you can check the rest of the documentation.
       </p>
       <div class="timestamps">
-       created on: 14-01-2019 | last modified on: 20-01-2019
+       created on: 14-01-2019 | last modified on: 21-01-2019
       </div>
      </div>
     </article>
@@ -323,7 +366,7 @@
        Version
       </h1>
       <p>
-       Version: 1
+       Version: 5
       </p>
       <p>
        <a href="../sitemap.html">
