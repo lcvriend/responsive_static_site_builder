@@ -384,7 +384,7 @@ def read_excel(path_to_structure_file):
                                                       row.Page), axis=1)
     df['Href_nest'] = df.apply(lambda row: (not pd.isna(row.Section)) +
                                            (not pd.isna(row.Chapter)), axis=1)
-    df.loc[df.index[0], 'Href'] = 'home.html'
+    df.loc[df.index[0], 'Href'] = 'index.html'
     df.loc[df.index[0], 'Href_nest'] = 0
     return SiteStructure(df)
 
