@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <link href="../css/styles_base.css" rel="stylesheet"/>
+  <title>
+   Build structure | Site Builder Manual
+  </title>
+ </head>
+ <body>
+  <div class="page">
+   <nav>
+    <input class="nav__toggle" id="nav__toggle" type="checkbox"/>
+    <label class="nav__toggle__button" for="nav__toggle">
+     ☰
+    </label>
+    <div class="document__title">
+     Site Builder Manual
+    </div>
+    <div class="nav__menu">
+     <ul>
+      <li>
+       <a href="../home.html">
+        Home
+       </a>
+      </li>
+      <li>
+       <a href="../content/site_structure_table.html">
+        Content
+       </a>
+      </li>
+      <li>
+       <a href="../templates/html_templates.html">
+        Templates
+       </a>
+      </li>
+      <li>
+       <a class="nav__active" href="../scripts/build_site.html">
+        Scripts
+       </a>
+      </li>
+      <li>
+       <a href="../modules/page_builder_module.html">
+        Modules
+       </a>
+      </li>
+     </ul>
+    </div>
+   </nav>
+   <header>
+    <p>
+     Scripts | Build structure
+    </p>
+    <div class="header__buttons">
+     <a class="header__button" href="../scripts/build_site.html" title="Build site">
+      ‹
+     </a>
+     <a class="header__button" href="../modules/page_builder_module.html" title="Page builder module">
+      ›
+     </a>
+    </div>
+   </header>
+   <div class="main">
+    <input checked="" class="aside__toggle" id="aside__toggle" type="checkbox"/>
+    <label class="aside__toggle__button" for="aside__toggle">
+     <span>
+     </span>
+    </label>
+    <aside>
+     <h1 class="aside__title">
+      Scripts
+     </h1>
+     <ul class="chapters">
+      <ul class="chapter__pages">
+       <li class="chapter__page">
+        <a href="../scripts/build_site.html">
+         Build site
+        </a>
+       </li>
+       <li class="chapter__page">
+        <a class="chapter__current" href="../scripts/build_structure.html">
+         Build structure
+        </a>
+       </li>
+      </ul>
+     </ul>
+    </aside>
+    <article>
+     <div class="article__container">
+      <h1 class="page__title">
+       Build structure
+      </h1>
+      <div class="page__synopsis">
+       <p>
+        This script builds or rebuilds the site structure within the content folder according to the
+        <a class="crossref" href="../content/site_structure_table.html">
+         site structure table
+        </a>
+        in
+        <code>
+         structure.xlsx
+        </code>
+       </p>
+      </div>
+      <p>
+       This script will do the following things:
+      </p>
+      <h3>
+       Check the structure table
+      </h3>
+      <ol>
+       <li>
+        Try to read the site structure from
+        <code>
+         structure.xlsx
+        </code>
+        in the content folder. If this fails it will create an empty structure table (with only a home page) and store it in the content folder.
+       </li>
+       <li>
+        Check if any rows lack a
+        <code>
+         page_id
+        </code>
+        and if so create and add unique
+        <code>
+         page_ids
+        </code>
+        to these rows.
+       </li>
+      </ol>
+      <blockquote>
+       <p>
+        This script can add
+        <code>
+         page_ids
+        </code>
+        to rows in the table where they are missing but other than that the
+        <a class="crossref" href="../content/site_structure_table.html">
+         site structure table
+        </a>
+        must be well formatted. At this point in time there is no other validation performed. This means specifically that the order for each page needs to be fully specified. Thus, make sure that section_oder, chapter_order and group_order are filled for each page. If there are no groups within a chapter or no chapters within a section the order value should be 1.
+       </p>
+      </blockquote>
+      <h3>
+       Delete .md files with unknown
+       <code>
+        page ids
+       </code>
+      </h3>
+      <ol>
+       <li>
+        Loop over the .md files in the content folder and for every file.
+       </li>
+       <li>
+        Check the
+        <code>
+         page_id
+        </code>
+       </li>
+       <li>
+        If a
+        <code>
+         page_id
+        </code>
+        is found that is unknown to the site structure definition, then prompt the user to delete the file.
+       </li>
+      </ol>
+      <blockquote>
+       <p>
+        Files with
+        <code>
+         page_ids
+        </code>
+        that are not defined in the site structure are ignored when building the site. Thus they can be safely left within the content folder. However this may later lead to confusion when maintaining the site.
+       </p>
+      </blockquote>
+      <h3>
+       Update paths and filenames
+      </h3>
+      <p>
+       Check if each path and filename follows this naming convention and if not rename them:
+      </p>
+      <p>
+       <strong>
+        content folder / section_order + section / chapter_order + group_order + page_order + page_name
+       </strong>
+      </p>
+      <blockquote>
+       <p>
+        Another thing to note is that this script will organize the .md files into folders for convenience only. Where the .md files are stored has no bearing on how the site is actually built. You could move the files around and it would make no difference - as long as the site builder is able to find the relevant files.
+       </p>
+      </blockquote>
+      <h3>
+       Add any new
+       <code>
+        page_ids
+       </code>
+       as .md files
+      </h3>
+      <p>
+       Check if all
+       <code>
+        page_ids
+       </code>
+       have an associated .md file. If this is not the case create the .md file following the naming convention above.
+      </p>
+      <h3>
+       Save the updated structure table
+      </h3>
+      <p>
+       Save the updated table in
+       <code>
+        structure.xlsx
+       </code>
+      </p>
+      <div class="timestamps">
+       created on: 14-01-2019 | last modified on: 20-01-2019
+      </div>
+     </div>
+    </article>
+   </div>
+   <footer>
+    <div class="footer__container">
+     <div class="footer__container__contact">
+      <h1>
+       Contact
+      </h1>
+      <p>
+       Lawrence Vriend
+       <br/>
+       lc.vriend@gmail.com
+       <br/>
+       <a href="https://github.com/lcvriend/">
+        GitHub
+       </a>
+      </p>
+     </div>
+     <div class="footer__container__info">
+      <h1>
+       Information
+      </h1>
+      <p>
+       A static site builder
+       <br/>
+       Geared to creating responsive
+       <br/>
+       website for manuals
+      </p>
+     </div>
+     <div class="footer__container__version">
+      <h1>
+       Version
+      </h1>
+      <p>
+       Version: 40
+      </p>
+      <p>
+       <a href="../sitemap.html">
+        Sitemap
+       </a>
+      </p>
+     </div>
+    </div>
+    <div class="footer__logo">
+     <img alt="logo" src="../images/logo.svg"/>
+    </div>
+   </footer>
+  </div>
+ </body>
+</html>
+    <!-- This site was built with the site builder at https://github.com/lcvriend/responsive_static_site_builder licensed under the GNU General Public License v3.0. -->
+    

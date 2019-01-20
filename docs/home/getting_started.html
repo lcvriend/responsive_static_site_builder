@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <link href="../css/styles_base.css" rel="stylesheet"/>
+  <title>
+   Getting started | Site Builder Manual
+  </title>
+ </head>
+ <body>
+  <div class="page">
+   <nav>
+    <input class="nav__toggle" id="nav__toggle" type="checkbox"/>
+    <label class="nav__toggle__button" for="nav__toggle">
+     ☰
+    </label>
+    <div class="document__title">
+     Site Builder Manual
+    </div>
+    <div class="nav__menu">
+     <ul>
+      <li>
+       <a class="nav__active" href="../home.html">
+        Home
+       </a>
+      </li>
+      <li>
+       <a href="../content/site_structure_table.html">
+        Content
+       </a>
+      </li>
+      <li>
+       <a href="../templates/html_templates.html">
+        Templates
+       </a>
+      </li>
+      <li>
+       <a href="../scripts/build_site.html">
+        Scripts
+       </a>
+      </li>
+      <li>
+       <a href="../modules/page_builder_module.html">
+        Modules
+       </a>
+      </li>
+     </ul>
+    </div>
+   </nav>
+   <header>
+    <p>
+     Home | Getting started
+    </p>
+    <div class="header__buttons">
+     <a class="header__button" href="../home.html" title="Home">
+      ‹
+     </a>
+     <a class="header__button" href="../home/cheatsheet.html" title="Cheatsheet">
+      ›
+     </a>
+    </div>
+   </header>
+   <div class="main">
+    <input checked="" class="aside__toggle" id="aside__toggle" type="checkbox"/>
+    <label class="aside__toggle__button" for="aside__toggle">
+     <span>
+     </span>
+    </label>
+    <aside>
+     <h1 class="aside__title">
+      Home
+     </h1>
+     <ul class="chapters">
+      <ul class="chapter__pages">
+       <li class="chapter__page">
+        <a href="../home.html">
+         Home
+        </a>
+       </li>
+       <li class="chapter__page">
+        <a class="chapter__current" href="../home/getting_started.html">
+         Getting started
+        </a>
+       </li>
+       <li class="chapter__page">
+        <a href="../home/cheatsheet.html">
+         Cheatsheet
+        </a>
+       </li>
+       <li class="chapter__page">
+        <a href="../home/overview.html">
+         Overview
+        </a>
+       </li>
+      </ul>
+     </ul>
+    </aside>
+    <article>
+     <div class="article__container">
+      <h1 class="page__title">
+       Getting started
+      </h1>
+      <div class="page__synopsis">
+       <p>
+        Where to get started if you want to use this tool
+       </p>
+      </div>
+      <p>
+       You can create your own static site with this tool. To get it up and running you will need to have Python 3.6 or higher installed with the following packages:
+      </p>
+      <ul>
+       <li>
+        <a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/">
+         BeautifulSoup
+        </a>
+       </li>
+       <li>
+        <a href="http://jinja.pocoo.org/docs/2.10/">
+         Jinja2
+        </a>
+       </li>
+       <li>
+        <a href="https://python-markdown.github.io/">
+         Python-Markdown
+        </a>
+       </li>
+       <li>
+        <a href="https://pandas.pydata.org/pandas-docs/stable/index.html">
+         pandas
+        </a>
+       </li>
+      </ul>
+      <p>
+       It also uses several modules from the
+       <a href="https://docs.python.org/3/library/">
+        standard library
+       </a>
+       (argparse, collections, configparser, io, pathlib, uuid).
+      </p>
+      <h3>
+       Step 1: Download the repository
+      </h3>
+      <p>
+       First download the repository from
+       <a href="https://github.com/lcvriend/responsive_static_site_builder">
+        GitHub
+       </a>
+       .
+      </p>
+      <h3>
+       Step 2: Initial setup
+      </h3>
+      <p>
+       The
+       <strong>
+        site builder
+       </strong>
+       needs some additional configuration files and folders to run that are not part of the repository. Rather, the scripts will create these files during their maiden voyage. Start out by running
+       <code>
+        python build_structure.py
+       </code>
+       which will:
+      </p>
+      <ul>
+       <li>
+        Create content and output folders for your website.
+       </li>
+       <li>
+        Create a
+        <code>
+         config.ini
+        </code>
+        file.
+       </li>
+       <li>
+        Create a
+        <code>
+         structure.xlsx
+        </code>
+        file.
+       </li>
+      </ul>
+      <p>
+       Then run
+       <code>
+        python build_site.py
+       </code>
+       which will:
+      </p>
+      <ul>
+       <li>
+        Create a
+        <code>
+         properties.ini
+        </code>
+        file in the content folder.
+       </li>
+       <li>
+        Create a first .html page in the output folder.
+       </li>
+      </ul>
+      <h3>
+       Step 3: Give your website a name
+      </h3>
+      <p>
+       Now that you have initialized the tool, go to the
+       <code>
+        properties.ini
+       </code>
+       file in the content folder. This file contains some basic properties about your site:
+      </p>
+      <ul>
+       <li>
+        Name of the site.
+       </li>
+       <li>
+        Language (used in the html head).
+       </li>
+       <li>
+        Build version (should be an integer).
+       </li>
+       <li>
+        Text to be printed when a page is empty.
+       </li>
+       <li>
+        Footer information.
+       </li>
+      </ul>
+      <p>
+       You can open and edit this file with your text editor. Give your site a name.
+      </p>
+      <h2>
+       Step 4: Create a first structure for your site
+      </h2>
+      <p>
+       The fourth step is to edit the
+       <a class="crossref" href="../content/site_structure_table.html">
+        site structure table
+       </a>
+       which is stored as
+       <code>
+        structure.xlsx
+       </code>
+       in the content folder. Here you add the pages that will be part of the website. You also divide your site into sections, chapters and page groups. There are some rules for how to build up the structure table. Check the
+       <a class="crossref" href="../content/site_structure_table.html">
+        site structure table
+       </a>
+       page for more details.
+      </p>
+      <p>
+       After you have created a site structure (or if you later on want to update your site structure) you run the
+       <a class="crossref" href="../scripts/build_structure.html">
+        build structure script
+       </a>
+       :
+       <code>
+        python script_build_structure.py
+       </code>
+       which will add the newly added pages as .md files to the content folder.
+      </p>
+      <h2>
+       Step 5: Fill your pages with content
+      </h2>
+      <p>
+       The fifth step is to put some content in your pages. With a text editor you can edit the .md files in the content folder. You can use conventional markdown and add custom elements. See the
+       <a class="crossref" href="../home/cheatsheet.html">
+        cheatsheet
+       </a>
+       for a quick overview of the syntax.
+      </p>
+      <h2>
+       Step 4: Build your site
+      </h2>
+      <p>
+       The fourth step is to build (a first version of) your website with the
+       <a class="crossref" href="../scripts/build_site.html">
+        build site script
+       </a>
+       by running
+       <code>
+        python script_build_site.py
+       </code>
+       This script will render your site as html into the designated output folder.
+      </p>
+      <p>
+       And that's it! For more details you can check the rest of the documentation.
+      </p>
+      <div class="timestamps">
+       created on: 14-01-2019 | last modified on: 20-01-2019
+      </div>
+     </div>
+    </article>
+   </div>
+   <footer>
+    <div class="footer__container">
+     <div class="footer__container__contact">
+      <h1>
+       Contact
+      </h1>
+      <p>
+       Lawrence Vriend
+       <br/>
+       lc.vriend@gmail.com
+       <br/>
+       <a href="https://github.com/lcvriend/">
+        GitHub
+       </a>
+      </p>
+     </div>
+     <div class="footer__container__info">
+      <h1>
+       Information
+      </h1>
+      <p>
+       A static site builder
+       <br/>
+       Geared to creating responsive
+       <br/>
+       website for manuals
+      </p>
+     </div>
+     <div class="footer__container__version">
+      <h1>
+       Version
+      </h1>
+      <p>
+       Version: 40
+      </p>
+      <p>
+       <a href="../sitemap.html">
+        Sitemap
+       </a>
+      </p>
+     </div>
+    </div>
+    <div class="footer__logo">
+     <img alt="logo" src="../images/logo.svg"/>
+    </div>
+   </footer>
+  </div>
+ </body>
+</html>
+    <!-- This site was built with the site builder at https://github.com/lcvriend/responsive_static_site_builder licensed under the GNU General Public License v3.0. -->
+    

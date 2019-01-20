@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <link href="../css/styles_base.css" rel="stylesheet"/>
+  <link href="../css/styles_collapsible.css" rel="stylesheet"/>
+  <link href="../css/styles_card.css" rel="stylesheet"/>
+  <link href="../css/styles_table.css" rel="stylesheet"/>
+  <link href="../css/styles_flextable.css" rel="stylesheet"/>
+  <title>
+   Cheatsheet | Site Builder Manual
+  </title>
+ </head>
+ <body>
+  <div class="page">
+   <nav>
+    <input class="nav__toggle" id="nav__toggle" type="checkbox"/>
+    <label class="nav__toggle__button" for="nav__toggle">
+     ☰
+    </label>
+    <div class="document__title">
+     Site Builder Manual
+    </div>
+    <div class="nav__menu">
+     <ul>
+      <li>
+       <a class="nav__active" href="../home.html">
+        Home
+       </a>
+      </li>
+      <li>
+       <a href="../content/site_structure_table.html">
+        Content
+       </a>
+      </li>
+      <li>
+       <a href="../templates/html_templates.html">
+        Templates
+       </a>
+      </li>
+      <li>
+       <a href="../scripts/build_site.html">
+        Scripts
+       </a>
+      </li>
+      <li>
+       <a href="../modules/page_builder_module.html">
+        Modules
+       </a>
+      </li>
+     </ul>
+    </div>
+   </nav>
+   <header>
+    <p>
+     Home | Cheatsheet
+    </p>
+    <div class="header__buttons">
+     <a class="header__button" href="../home/getting_started.html" title="Getting started">
+      ‹
+     </a>
+     <a class="header__button" href="../home/overview.html" title="Overview">
+      ›
+     </a>
+    </div>
+   </header>
+   <div class="main">
+    <input checked="" class="aside__toggle" id="aside__toggle" type="checkbox"/>
+    <label class="aside__toggle__button" for="aside__toggle">
+     <span>
+     </span>
+    </label>
+    <aside>
+     <h1 class="aside__title">
+      Home
+     </h1>
+     <ul class="chapters">
+      <ul class="chapter__pages">
+       <li class="chapter__page">
+        <a href="../home.html">
+         Home
+        </a>
+       </li>
+       <li class="chapter__page">
+        <a href="../home/getting_started.html">
+         Getting started
+        </a>
+       </li>
+       <li class="chapter__page">
+        <a class="chapter__current" href="../home/cheatsheet.html">
+         Cheatsheet
+        </a>
+       </li>
+       <li class="chapter__page">
+        <a href="../home/overview.html">
+         Overview
+        </a>
+       </li>
+      </ul>
+     </ul>
+    </aside>
+    <article>
+     <div class="article__container">
+      <h1 class="page__title">
+       Cheatsheet
+      </h1>
+      <div class="page__synopsis">
+       <p>
+        Short instructin on how to create the .md files
+       </p>
+      </div>
+      <h2>
+       Sections
+      </h2>
+      <p>
+       Use five or more underscores (
+       <code>
+        _____
+       </code>
+       ) to separate sections.
+      </p>
+      <hr/>
+      <h2>
+       Section processing
+      </h2>
+      <p>
+       <code>
+        |[FUNCTION CALL]
+       </code>
+      </p>
+      <p>
+       Mark the first line of a section with a pipe-symbol (
+       <code>
+        |
+       </code>
+       ) + the name of the processing function you want to apply to the section. Currently available:
+      </p>
+      <ol>
+       <li>
+        Container
+       </li>
+       <li>
+        Collapsible
+       </li>
+       <li>
+        Iframe
+       </li>
+       <li>
+        Card
+       </li>
+       <li>
+        Table
+       </li>
+       <li>
+        Flextable
+       </li>
+       <li>
+        Markdown
+       </li>
+      </ol>
+      <p>
+       If a section has no function call, it will be rendered as markdown. In case you do not want to render a section at all, you can use
+       <code>
+        |SKIP
+       </code>
+      </p>
+      <hr/>
+      <h2>
+       Variables
+      </h2>
+      <p>
+       <code>
+        |[FUNCTION CALL]:[variable]
+       </code>
+      </p>
+      <p>
+       Some processing functions take an extra variable. Add the variable after the
+       <code>
+        |FUNCTION_CALL
+       </code>
+       separated by a colon
+       <code>
+        :
+       </code>
+      </p>
+      <hr/>
+      <h2>
+       Container
+      </h2>
+      <p>
+       <code>
+        |CONTAINER:[css-class]
+       </code>
+      </p>
+      <p>
+       The
+       <a class="crossref" href="../modules/section_processing/container.html">
+        container function
+       </a>
+       wraps the section in a div-container. Variable is required: refers to the class name of the wrapping container.
+      </p>
+      <h3>
+       Example
+      </h3>
+      <blockquote>
+       <p>
+        <code>
+         |CONTAINER:page__synopsis
+        </code>
+        <br/>
+        <code>
+         Sharki supermachine!
+        </code>
+       </p>
+      </blockquote>
+      <h4>
+       Output
+      </h4>
+      <div class="page__synopsis">
+       <p>
+        Sharki supermachine!
+       </p>
+      </div>
+      <hr/>
+      <h2>
+       Collapsible
+      </h2>
+      <p>
+       <code>
+        |COLLAPSIBLE
+       </code>
+       <br/>
+       <code>
+        [### [LABEL NAME][:checked]]
+       </code>
+       <br/>
+       <code>
+        [COLLAPSIBLE CONTENT]
+       </code>
+      </p>
+      <p>
+       The
+       <a class="crossref" href="../modules/section_processing/collapsible.html">
+        collapsible function
+       </a>
+       creates one or more collapsible containers. First call the function. Then in the following line state the label name:
+       <code>
+        ### [LABEL NAME]
+       </code>
+       Followed by the content of the container. If you want the container to be expanded by default add
+       <code>
+        :checked
+       </code>
+       to the label name. You can add multiple containers in a section.
+      </p>
+      <h3>
+       Example
+      </h3>
+      <blockquote>
+       <p>
+        <code>
+         |COLLAPSIBLE
+        </code>
+        <br/>
+        <code>
+         ### Stevie Storm:checked
+        </code>
+        <br/>
+        <code>
+         There come Stevie Storm and friends
+        </code>
+        <br/>
+        <code>
+         They laugh and joke and demonstrate the disco-dance
+        </code>
+        <br/>
+        <code>
+         He's got a lucky face
+        </code>
+        <br/>
+        <code>
+         He gallops, to amaze
+        </code>
+        <br/>
+        <code>
+         imaginary horse to race
+        </code>
+       </p>
+      </blockquote>
+      <h4>
+       Output
+      </h4>
+      <div class="collapsible">
+       <input checked="" class="collapsible__toggle" id="collapsible-d787e1e2" type="checkbox"/>
+       <label class="collapsible__label" for="collapsible-d787e1e2">
+        Stevie Storm
+       </label>
+       <div class="collapsible__container">
+        <div class="collapsible__content">
+         <p>
+          There come Stevie Storm and friends
+          <br/>
+          They laugh and joke and demonstrate the disco-dance
+          <br/>
+          He's got a lucky face
+          <br/>
+          He gallops, to amaze
+          <br/>
+          imaginary horse to race
+         </p>
+        </div>
+       </div>
+      </div>
+      <hr/>
+      <h2>
+       Card
+      </h2>
+      <p>
+       <code>
+        |CARD
+       </code>
+       <br/>
+       <code>
+        [[key], [value]]
+       </code>
+      </p>
+      <p>
+       The
+       <a class="crossref" href="../modules/section_processing/card.html">
+        card function
+       </a>
+       creates a card from a comma separated table with two columns.
+      </p>
+      <h3>
+       Example
+      </h3>
+      <blockquote>
+       <p>
+        <code>
+         |CARD
+        </code>
+        <br/>
+        <code>
+         Name,      Harry den Hartog
+        </code>
+        <br/>
+        <code>
+         Pseudonym, Harry Merry
+        </code>
+        <br/>
+        <code>
+         Born,      15 November 1971
+        </code>
+        <br/>
+        <code>
+         Country,   The Netherlands
+        </code>
+       </p>
+      </blockquote>
+      <h4>
+       Output
+      </h4>
+      <div class="card">
+       <div class="card__colortab">
+       </div>
+       <div class="card__content">
+        <div class="card__content__category">
+         Name
+        </div>
+        <div class="card__content__value">
+         Harry den Hartog
+        </div>
+        <div class="card__content__category">
+         Pseudonym
+        </div>
+        <div class="card__content__value">
+         Harry Merry
+        </div>
+        <div class="card__content__category">
+         Born
+        </div>
+        <div class="card__content__value">
+         15 November 1971
+        </div>
+        <div class="card__content__category">
+         Country
+        </div>
+        <div class="card__content__value">
+         The Netherlands
+        </div>
+       </div>
+      </div>
+      <hr/>
+      <h2>
+       Table
+      </h2>
+      <p>
+       <code>
+        |TABLE:[css-class]
+       </code>
+       <br/>
+       <code>
+        [CSV]
+       </code>
+      </p>
+      <p>
+       The
+       <a class="crossref" href="../modules/section_processing/table.html">
+        table function
+       </a>
+       creates a html-table from a comma separated table.
+       <br/>
+       Variable is optional: it adds a css class to the table.
+      </p>
+      <h3>
+       Example
+      </h3>
+      <blockquote>
+       <p>
+        <code>
+         |TABLE
+        </code>
+        <br/>
+        <code>
+         Album,            Year, label
+        </code>
+        <br/>
+        <code>
+         First Contact,    2007, Olé Records
+        </code>
+        <br/>
+        <code>
+         Veronika,         2008, Tocado-Records
+        </code>
+        <br/>
+        <code>
+         Australian Sun,   2012, Meeuw Muzak
+        </code>
+        <br/>
+        <code>
+         Orama A-Delic Palooza O-Matic, 2014, Blowpipe
+        </code>
+       </p>
+      </blockquote>
+      <h4>
+       Output
+      </h4>
+      <div class="table__container">
+       <table border="1" class="dataframe">
+        <thead>
+         <tr style="text-align: right;">
+          <th>
+           Album
+          </th>
+          <th>
+           Year
+          </th>
+          <th>
+           label
+          </th>
+         </tr>
+        </thead>
+        <tbody>
+         <tr>
+          <td>
+           First Contact
+          </td>
+          <td>
+           2007
+          </td>
+          <td>
+           Olé Records
+          </td>
+         </tr>
+         <tr>
+          <td>
+           Veronika
+          </td>
+          <td>
+           2008
+          </td>
+          <td>
+           Tocado-Records
+          </td>
+         </tr>
+         <tr>
+          <td>
+           Australian Sun
+          </td>
+          <td>
+           2012
+          </td>
+          <td>
+           Meeuw Muzak
+          </td>
+         </tr>
+         <tr>
+          <td>
+           Orama A-Delic Palooza O-Matic
+          </td>
+          <td>
+           2014
+          </td>
+          <td>
+           Blowpipe
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </div>
+      <hr/>
+      <h2>
+       Flextable
+      </h2>
+      <p>
+       <code>
+        |FLEXTABLE
+       </code>
+       <br/>
+       <code>
+        [CSV]
+       </code>
+      </p>
+      <p>
+       The
+       <a class="crossref" href="../modules/section_processing/flextable.html">
+        flextable function
+       </a>
+       creates a css table from a comma separated table. It has the property of realigning the rows into columns when viewed on a smaller viewport.
+      </p>
+      <h3>
+       Example
+      </h3>
+      <blockquote>
+       <p>
+        <code>
+         |FLEXTABLE
+        </code>
+        <br/>
+        <code>
+         First line, Second line, Third line, Fourth line
+        </code>
+        <br/>
+        <code>
+         Animated whirlpool, Thermonuclear stool, Stays responsible school, 'Capricious, cool.'
+        </code>
+        <br/>
+        <code>
+         Puzzling merry-go-round, 'Fascinating, profound', Enormous ego drowned, Me in show-sound.
+        </code>
+        <br/>
+        <code>
+         Vibrant imagination, Distorts investigation, Into salacious, gratification.
+        </code>
+        <br/>
+        <code>
+         Fertile fluorescence, Bioluminescence, Lavish phosphorescence, Opalescence.
+        </code>
+        <br/>
+        <code>
+         Overwhelming tzarina, Cultivated stamina, To tackle boldly, Sullen lamina.
+        </code>
+       </p>
+      </blockquote>
+      <h4>
+       output
+      </h4>
+      <div class="flextable" style="grid-template-columns: repeat(4, auto)">
+       <div class="flextable__header">
+        First line
+       </div>
+       <div class="flextable__header">
+        Second line
+       </div>
+       <div class="flextable__header">
+        Third line
+       </div>
+       <div class="flextable__header">
+        Fourth line
+       </div>
+       <div class="flextable__item">
+        <div class="flextable__category">
+         First line
+        </div>
+        <div>
+         Animated whirlpool
+        </div>
+       </div>
+       <div class="flextable__item">
+        <div class="flextable__category">
+         Second line
+        </div>
+        <div>
+         Thermonuclear stool
+        </div>
+       </div>
+       <div class="flextable__item">
+        <div class="flextable__category">
+         Third line
+        </div>
+        <div>
+         Stays responsible school
+        </div>
+       </div>
+       <div class="flextable__item flextable__item__end-of-row">
+        <div class="flextable__category">
+         Fourth line
+        </div>
+        <div>
+         Capricious, cool.
+        </div>
+       </div>
+       <div class="flextable__item">
+        <div class="flextable__category">
+         First line
+        </div>
+        <div>
+         Puzzling merry-go-round
+        </div>
+       </div>
+       <div class="flextable__item">
+        <div class="flextable__category">
+         Second line
+        </div>
+        <div>
+         Fascinating, profound
+        </div>
+       </div>
+       <div class="flextable__item">
+        <div class="flextable__category">
+         Third line
+        </div>
+        <div>
+         Enormous ego drowned
+        </div>
+       </div>
+       <div class="flextable__item flextable__item__end-of-row">
+        <div class="flextable__category">
+         Fourth line
+        </div>
+        <div>
+         Me in show-sound.
+        </div>
+       </div>
+       <div class="flextable__item">
+        <div class="flextable__category">
+         First line
+        </div>
+        <div>
+         Vibrant imagination
+        </div>
+       </div>
+       <div class="flextable__item">
+        <div class="flextable__category">
+         Second line
+        </div>
+        <div>
+         Distorts investigation
+        </div>
+       </div>
+       <div class="flextable__item">
+        <div class="flextable__category">
+         Third line
+        </div>
+        <div>
+         Into salacious
+        </div>
+       </div>
+       <div class="flextable__item flextable__item__end-of-row">
+        <div class="flextable__category">
+         Fourth line
+        </div>
+        <div>
+         gratification.
+        </div>
+       </div>
+       <div class="flextable__item">
+        <div class="flextable__category">
+         First line
+        </div>
+        <div>
+         Fertile fluorescence
+        </div>
+       </div>
+       <div class="flextable__item">
+        <div class="flextable__category">
+         Second line
+        </div>
+        <div>
+         Bioluminescence
+        </div>
+       </div>
+       <div class="flextable__item">
+        <div class="flextable__category">
+         Third line
+        </div>
+        <div>
+         Lavish phosphorescence
+        </div>
+       </div>
+       <div class="flextable__item flextable__item__end-of-row">
+        <div class="flextable__category">
+         Fourth line
+        </div>
+        <div>
+         Opalescence.
+        </div>
+       </div>
+       <div class="flextable__item">
+        <div class="flextable__category">
+         First line
+        </div>
+        <div>
+         Overwhelming tzarina
+        </div>
+       </div>
+       <div class="flextable__item">
+        <div class="flextable__category">
+         Second line
+        </div>
+        <div>
+         Cultivated stamina
+        </div>
+       </div>
+       <div class="flextable__item">
+        <div class="flextable__category">
+         Third line
+        </div>
+        <div>
+         To tackle boldly
+        </div>
+       </div>
+       <div class="flextable__item flextable__item__last-row">
+        <div class="flextable__category">
+         Fourth line
+        </div>
+        <div>
+         Sullen lamina.
+        </div>
+       </div>
+      </div>
+      <hr/>
+      <h2>
+       Markdown
+      </h2>
+      <p>
+       <code>
+        |MARKDOWN
+       </code>
+      </p>
+      <p>
+       The markdown function may be explicitly called. But any sections without a function call will be rendered as markdown anyway. For the rules of markdown refer to the
+       <a href="https://daringfireball.net/projects/markdown/syntax">
+        Daring Fireball
+       </a>
+       .
+      </p>
+      <hr/>
+      <h2>
+       Iframe
+      </h2>
+      <p>
+       To be delivered.
+      </p>
+      <div class="timestamps">
+       created on: 14-01-2019 | last modified on: 20-01-2019
+      </div>
+     </div>
+    </article>
+   </div>
+   <footer>
+    <div class="footer__container">
+     <div class="footer__container__contact">
+      <h1>
+       Contact
+      </h1>
+      <p>
+       Lawrence Vriend
+       <br/>
+       lc.vriend@gmail.com
+       <br/>
+       <a href="https://github.com/lcvriend/">
+        GitHub
+       </a>
+      </p>
+     </div>
+     <div class="footer__container__info">
+      <h1>
+       Information
+      </h1>
+      <p>
+       A static site builder
+       <br/>
+       Geared to creating responsive
+       <br/>
+       website for manuals
+      </p>
+     </div>
+     <div class="footer__container__version">
+      <h1>
+       Version
+      </h1>
+      <p>
+       Version: 40
+      </p>
+      <p>
+       <a href="../sitemap.html">
+        Sitemap
+       </a>
+      </p>
+     </div>
+    </div>
+    <div class="footer__logo">
+     <img alt="logo" src="../images/logo.svg"/>
+    </div>
+   </footer>
+  </div>
+ </body>
+</html>
+    <!-- This site was built with the site builder at https://github.com/lcvriend/responsive_static_site_builder licensed under the GNU General Public License v3.0. -->
+    

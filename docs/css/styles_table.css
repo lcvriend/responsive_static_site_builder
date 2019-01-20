@@ -1,0 +1,44 @@
+/* ___________________________________________________________ */
+/*                      TABLE FORMATTING                       */
+/* ___________________________________________________________ */
+.table__container {
+    overflow-x: auto;
+    margin: var(--margin-sides);
+}
+table.dataframe {
+    table-layout: fixed;
+    border-collapse: collapse;
+    border: 1px solid var(--color-lines, Gainsboro);
+}
+.dataframe th, .dataframe td {
+    border-style: none;
+    word-wrap: break-word;
+}
+.dataframe th {
+    text-align: left;
+    color: white;
+    background-color: var(--color-tab, LightSteelBlue);
+    border-bottom: 1px solid var(--color-lines, Gainsboro);
+}
+.dataframe th, .dataframe td {
+    padding: 0.5em;
+}
+.dataframe td p {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.dataframe td p,
+.dataframe td ol,
+.dataframe td ul {
+    margin-left: 0;
+}
+.dataframe td ol,
+.dataframe td ul {
+    padding-left: 0.5em;
+}
+.dataframe tr {
+    background: white;
+}
+.dataframe tr:hover {
+    background: var(--color-hover, GhostWhite)
+}

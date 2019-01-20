@@ -1,0 +1,53 @@
+/* ___________________________________________________________ */
+/*                             CARD                            */
+/* ___________________________________________________________ */
+.card {
+    display: flex;
+    margin: var(--margin-sides, 1.5rem);
+    box-shadow: 0 0 15px rgba(0,0,0,.20);
+    border-top-left-radius: 7px;
+}
+.card p,
+.card li {
+    margin: 0;
+}
+.card ul,
+.card ol {
+    margin: 0.5em;
+}
+.card__colortab {
+    flex-shrink: 0;
+    width: var(--margin-sides, 1.5rem);
+    background: var(--color-tab, LightSteelBlue);
+    border-top-left-radius: 7px;
+}
+.card__content {
+    display: grid;
+    width: 100%;
+    padding: var(--margin-sides, 1.5rem);
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+    grid-row-gap: calc(var(--margin-sides, 1.5rem) / 3);
+}
+.card__content__category {
+    font-weight: bold;
+    padding-right: var(--margin-sides, 1.5rem);
+    border-top: 1px solid var(--color-lines, Gainsboro);
+}
+.card__content div:first-child {
+    border-top: none;
+}
+@media screen and (min-width: 600px) {
+    .card__colortab {
+        width: calc(var(--margin-sides, 1.5rem) * 2);
+    }
+    .card__content {
+        grid-template-columns: auto 1fr;
+    }
+    .card__content__value {
+        border-top: 1px solid var(--color-lines, Gainsboro);
+    }
+    .card__content div:nth-child(2) {
+        border-top: none;
+    }
+}
